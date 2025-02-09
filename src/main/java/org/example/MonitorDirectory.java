@@ -1,3 +1,10 @@
+/**
+ * Monitors directory for file creation, modification, and deletion.
+ * @author Abdulahad Ghuman
+ * @version 1.0
+ * @since 2025-02-08
+ */
+
 package org.example;
 
 import java.io.IOException;
@@ -6,7 +13,17 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class MonitorDirectory {
+
+    /**
+     * Scanner to read user input.
+     */
+
     static Scanner scanner = new Scanner(System.in);
+
+    /**
+     * Listens for updates in directory.
+     */
+
     public static void watchDirectory () {
         System.out.println("Enter directory to monitor for changes");
         Path path = Paths.get(scanner.nextLine());

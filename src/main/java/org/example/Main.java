@@ -1,3 +1,14 @@
+/**
+ * Shield 360 is a comprehensive security project that offers multiple tools.
+ * This includes a file monitoring system with hashes.
+ * Additionally, it involves an antivirus that uses encryption based quarantine.
+ * Finally, it can simply encrypt/decrypt files.
+ *
+ * @author Abdulahad Ghuman
+ * @version 1.0
+ * @since 2025-02-08
+ */
+
 package org.example;
 
 import javax.crypto.SecretKey;
@@ -5,6 +16,11 @@ import java.io.File;
 import java.util.Scanner;
 
 public class Main {
+
+    /**
+     * Main method which provides a CLI to interact with application.
+     */
+
     public static void main (String [] args) {
         Scanner scanner = new Scanner(System.in);
         String result = "";

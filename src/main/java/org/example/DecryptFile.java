@@ -1,3 +1,11 @@
+/**
+ * Decrypts a file that has been encrypted.
+ *
+ * @author Abdulahad Ghuman
+ * @version 1.0
+ * @since 2025-02-08
+ */
+
 package org.example;
 
 import javax.crypto.Cipher;
@@ -11,8 +19,26 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 public class DecryptFile {
+
+    /**
+     * Size of IV.
+     */
+
     private static final int IV_SIZE = 12;
+
+    /**
+     * Size of tag.
+     */
+
     private static final int TAG_LENGTH_BIT = 128;
+
+    /**
+     * Decrypts the file.
+     *
+     * @param key Key used to encrypt file.
+     * @param inputFile Encrypted file.
+     * @param outputFile Decrypted output file.
+     */
 
     public static void decryptFile (SecretKey key, File inputFile, File outputFile) {
         FileInputStream fileInputStream;

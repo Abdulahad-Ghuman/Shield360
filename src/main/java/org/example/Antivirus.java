@@ -1,3 +1,11 @@
+/**
+ * Calculates hashes of files in a directory and compares it to known malware hashes.
+ *
+ * @author Abdulahad Ghuman
+ * @version 1.0
+ * @since 2025-02-08
+ */
+
 package org.example;
 
 import javax.crypto.SecretKey;
@@ -5,12 +13,25 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashSet;
 import java.util.HexFormat;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Antivirus {
+
+    /**
+     * Hash Set that includes all virus hashes from file.
+     */
+
     static HashSet <String> virusHashes = new HashSet <> ();
+
+    /**
+     * Scanner to read user input.
+     */
+
     static Scanner scanner;
+
+    /**
+     * Reads through known malware hex values and imports them.
+     */
 
     public static void getHashes () {
         try {
@@ -22,6 +43,14 @@ public class Antivirus {
             throw new RuntimeException("Cannot find malware text file", e);
         }
     }
+
+    /**
+     * Recursively looks through directory and compares hash of file to known malware hashes.
+     *
+     * @param directoryToScan The directory to scan.
+     * @param secretKey The encryption key to encrypt files.
+     */
+
     public static void scanForMalware (File directoryToScan, SecretKey secretKey) {
         if (directoryToScan != null) {
             for (File entry : directoryToScan.listFiles()) {

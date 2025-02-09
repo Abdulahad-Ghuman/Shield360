@@ -1,3 +1,11 @@
+/**
+ * Encrypts file.
+ *
+ * @author Abdulahad Ghuman
+ * @version 1.0
+ * @since 2025-02-08
+ */
+
 package org.example;
 
 import javax.crypto.*;
@@ -9,9 +17,30 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
 public class EncryptFile {
+
+    /**
+     * Key size.
+     */
+
     private static final int AES_KEY_SIZE = 256;
+
+    /**
+     * IV size.
+     */
+
     private static final int IV_SIZE = 12;
+
+    /**
+     * Tag length.
+     */
+
     private static final int TAG_LENGTH_BIT = 128;
+
+    /**
+     * Generates new AES key.
+     * @return Encryption key.
+     */
+
     public static SecretKey generateAESKey () {
         try {
             KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
@@ -21,6 +50,15 @@ public class EncryptFile {
             throw new RuntimeException("Error generating AES key", e);
         }
     }
+
+    /**
+     * Encrypts the file.
+     *
+     * @param key Key used to encrypt file.
+     * @param inputFile FIle to encrypt.
+     * @param outputFile Encrypted file.
+     */
+
     public static void encryptFile (SecretKey key, File inputFile, File outputFile) {
         Cipher cipher;
         FileInputStream fileInputStream;
